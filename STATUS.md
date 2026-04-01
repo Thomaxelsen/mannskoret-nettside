@@ -1,6 +1,6 @@
 # Status — Mannskoret nettside redesign
 
-Sist oppdatert: 2026-04-01 (historien.html ferdig)
+Sist oppdatert: 2026-04-01
 
 ## Sidestatus
 
@@ -11,7 +11,7 @@ Sist oppdatert: 2026-04-01 (historien.html ferdig)
 | Bli med i koret | `medlemskap.html` | Ferdig | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
 | Låne korarrangementer | `lane-korarrangementer.html` | Ferdig | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
 | Kontakt | `kontakt.html` | Ferdig | Tre infobokser: booking, generelle henvendelser, postadresse |
-| Hele historien | `historien.html` | Ferdig | Scroll-basert storytelling med fade-in, sticky media, YouTube-videoer, fullskjerm Berlin-video |
+| Hele historien | `historien.html` | Under arbeid | Scroll-basert storytelling — grunnstruktur ferdig, gjenstår: bilder/layout for innledende kapitler, finjustering |
 
 ## Konserter på forsiden
 
@@ -32,13 +32,20 @@ Sist oppdatert: 2026-04-01 (historien.html ferdig)
 ## Endringslogg
 
 ### 2026-04-01
-- Redesignet `historien.html` — scroll-basert storytelling:
+- Redesignet `historien.html` — scroll-basert storytelling (under arbeid):
   - 15 kapitler med fade-in-animasjoner (IntersectionObserver)
-  - 4 sticky media-seksjoner: Krogh (bilde), dokumentar (placeholder), TV-aksjonen (YouTube), Zappa (YouTube)
-  - Fullskjerm Berlin café-video (komprimert fra 270MB MOV til 4MB MP4)
-  - YouTube IFrame API med brandless embed (controls:0, overlay-maskering)
+  - Sticky media: Krogh (bilde av Ivar), Zappa (YouTube brandless)
+  - Fullskjerm Berlin café-video med tekst over (komprimert 270MB→4MB MP4)
+  - Sticky YouTube-trailer for «For vi er gutta» med tekst → video → tekst scrollmønster
+  - TV-aksjonen YouTube-klipp inline i Mange oppdrag
+  - Husleiekonsert med tre illustrasjonsbilder ved siden av tekst
+  - Jimmis Rekordbok med 2016-plakat, Jan-Tore bilde, 1. mai 2013-bilde
+  - Lydknapp (mute/unmute) på alle videoer
+  - YouTube IFrame API med brandless embed (gradient overlay-maskering)
+  - Zappa-video med fade-out ved loop
   - Responsivt: sticky → stacker på mobil
   - WP-vennlig: klasse-baserte selektorer, data-attributter for video-IDer
+  - **Gjenstår:** Bilder og layout for innledende kapitler, finjustering av tekst/bilde-balanse
 - Redesignet `medlemskap.html` med split-layout og stjerne-bilde
 - Fikset bildekant-problem med scale-trick (Gemini)
 - Oppdatert nummerte steg-design (Gemini)
