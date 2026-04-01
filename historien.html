@@ -567,10 +567,11 @@
     <!-- Sticky video background -->
     <div class="trailer-sticky">
       <div class="yt-fullscreen-bg" data-youtube-id="V2chMsbwYpE" data-youtube-start="0" data-youtube-end="0"></div>
-      <button class="sound-toggle" data-mute-toggle="yt" aria-label="Slå på lyd">
-        <i class="ph ph-speaker-x text-lg"></i>
-      </button>
     </div>
+    <!-- Sound toggle outside sticky/scroll layers so it's always tappable -->
+    <button class="sound-toggle" data-mute-toggle="yt" aria-label="Slå på lyd" style="position:fixed; bottom:24px; left:24px; z-index:50; display:none;" id="trailer-sound-toggle">
+      <i class="ph ph-speaker-x text-lg"></i>
+    </button>
     <!-- Scrollende innhold over videoen -->
     <div class="trailer-scroll-content">
       <!-- Fase 1: Første tekst -->
@@ -916,8 +917,13 @@
     // 6. SOUND TOGGLE — YouTube videos
     document.querySelectorAll('[data-mute-toggle="yt"]').forEach(btn => {
       btn.addEventListener('click', () => {
-        const wrapper = btn.closest('.video-wrapper') ||
-          (btn.closest('.trailer-sticky') && btn.closest('.trailer-sticky').querySelector('.yt-fullscreen-bg'));
+        let wrapper;
+        if (btn.id === 'trailer-sound-toggle') {
+          // Trailer toggle is fixed-positioned outside the sticky — find the fullscreen bg
+          wrapper = document.querySelector('.trailer-scroll-container .yt-fullscreen-bg');
+        } else {
+          wrapper = btn.closest('.video-wrapper');
+        }
         const match = wrapper ? ytPlayers.find(p => p.wrapper === wrapper) : null;
         if (!match) return;
         try {
@@ -931,6 +937,20 @@
         } catch(e) {}
       });
     });
+
+    // 6b. Show/hide trailer sound toggle when trailer section is in view
+    const trailerToggle = document.getElementById('trailer-sound-toggle');
+    if (trailerToggle) {
+      const trailerSection = document.querySelector('.trailer-scroll-container');
+      if (trailerSection) {
+        const toggleObs = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            trailerToggle.style.display = entry.isIntersecting ? 'flex' : 'none';
+          });
+        }, { threshold: 0.05 });
+        toggleObs.observe(trailerSection);
+      }
+    }
   </script>
 
 </body>
