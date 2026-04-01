@@ -11,7 +11,7 @@ Sist oppdatert: 2026-04-01
 | Bli med i koret | `medlemskap.html` | Ferdig | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
 | Låne korarrangementer | `lane-korarrangementer.html` | Ferdig | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
 | Kontakt | `kontakt.html` | Ferdig | Tre infobokser: booking, generelle henvendelser, postadresse |
-| Hele historien | `historien.html` | Under arbeid | Scroll-basert storytelling — grunnstruktur ferdig, gjenstår: bilder/layout for innledende kapitler, finjustering |
+| Hele historien | `historien.html` | Ferdig | Scroll-basert storytelling — asymmetrisk layout, fullscreen lerretsseksjoner, glassmorphism og premium bildegallerier |
 
 ## Konserter på forsiden
 
@@ -32,6 +32,11 @@ Sist oppdatert: 2026-04-01
 ## Endringslogg
 
 ### 2026-04-01
+- Fullført design-oppgradering av `historien.html`:
+  - Gjorde om `Hvit Månedsavslutning` og `Flinke Folk` til massive fullscreen lerrets-kapitler med sorte/hvite bilder som bakgrunn og invertert (hvit) cover-tekst.
+  - Omformet trange bildekolonner til asymmetriske gallerier (naturlig bildeforhold på plakatene i `Husleiekonsert`, stagger layout i `1. mai` oppslag).
+  - Brukte noteark for Jokke og Zappa som kreative vannmerker lagt bak en "glassmorphism" tekstboks (`backdrop-blur`) i Repertoar-kapittelet.
+  - La til filene `Sparkle.jpeg` (panorama) og `Stiftelsesprotokoll` (fysisk papir design), fjernet utvalgte placeholdere og byttet bunnbildet med `Mannskoret ansikter.jpg`.
 - Redesignet `historien.html` — scroll-basert storytelling (under arbeid):
   - 15 kapitler med fade-in-animasjoner (IntersectionObserver)
   - Sticky media: Krogh (bilde av Ivar), Zappa (YouTube brandless)
@@ -45,7 +50,7 @@ Sist oppdatert: 2026-04-01
   - Zappa-video med fade-out ved loop
   - Responsivt: sticky → stacker på mobil
   - WP-vennlig: klasse-baserte selektorer, data-attributter for video-IDer
-  - **Gjenstår:** Bilder og layout for innledende kapitler, finjustering av tekst/bilde-balanse
+  - **Gjenstår:** Nettsiden er ferdig designet og programmert ut. Ventende kilde-innhold poppes inn i eksisterende placeholdere ved anledning.
 - Redesignet `medlemskap.html` med split-layout og stjerne-bilde
 - Fikset bildekant-problem med scale-trick (Gemini)
 - Oppdatert nummerte steg-design (Gemini)
