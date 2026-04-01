@@ -42,6 +42,7 @@ Sist oppdatert: 2026-04-01
 - Fikset mobilmeny: byttet bg-black/98 til bg-zinc-950 (solid) på alle sider
 - Satt repo til public, lagt til GitHub Pages deploy via Actions workflow
 - Live: https://thomaxelsen.github.io/mannskoret-nettside/
+- Lagt til Kontakt-lenke i desktop-nav og burger-meny på alle sider
 
 ### 2026-03-31
 - Opprettet GitHub-repo `Thomaxelsen/mannskoret-nettside` (privat)
