@@ -1,6 +1,6 @@
 # Status — Mannskoret nettside redesign
 
-Sist oppdatert: 2026-04-01
+Sist oppdatert: 2026-04-01 (historien.html ferdig)
 
 ## Sidestatus
 
@@ -11,7 +11,7 @@ Sist oppdatert: 2026-04-01
 | Bli med i koret | `medlemskap.html` | Ferdig | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
 | Låne korarrangementer | `lane-korarrangementer.html` | Ferdig | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
 | Kontakt | `kontakt.html` | Ferdig | Tre infobokser: booking, generelle henvendelser, postadresse |
-| Hele historien | `historien.html` | Ikke startet | Bruker fortsatt gammel Astra-design |
+| Hele historien | `historien.html` | Ferdig | Scroll-basert storytelling med fade-in, sticky media, YouTube-videoer, fullskjerm Berlin-video |
 
 ## Konserter på forsiden
 
@@ -32,6 +32,13 @@ Sist oppdatert: 2026-04-01
 ## Endringslogg
 
 ### 2026-04-01
+- Redesignet `historien.html` — scroll-basert storytelling:
+  - 15 kapitler med fade-in-animasjoner (IntersectionObserver)
+  - 4 sticky media-seksjoner: Krogh (bilde), dokumentar (placeholder), TV-aksjonen (YouTube), Zappa (YouTube)
+  - Fullskjerm Berlin café-video (komprimert fra 270MB MOV til 4MB MP4)
+  - YouTube IFrame API med brandless embed (controls:0, overlay-maskering)
+  - Responsivt: sticky → stacker på mobil
+  - WP-vennlig: klasse-baserte selektorer, data-attributter for video-IDer
 - Redesignet `medlemskap.html` med split-layout og stjerne-bilde
 - Fikset bildekant-problem med scale-trick (Gemini)
 - Oppdatert nummerte steg-design (Gemini)
