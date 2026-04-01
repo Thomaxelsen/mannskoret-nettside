@@ -9,7 +9,8 @@ Sist oppdatert: 2026-04-01
 | Forside | `index.html` | Ferdig | Hero med konsertbilde + parallax, sticky innholdsseksjon med 3 konserter, footer |
 | Booking | `booking.html` | Ferdig | Split-layout: tekst venstre, ansikter-bilde høyre (sort bakgrunn) |
 | Bli med i koret | `medlemskap.html` | Ferdig | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
-| Låne korarrangementer | `lane-korarrangementer.html` | Ikke startet | Bruker fortsatt gammel Astra-design |
+| Låne korarrangementer | `lane-korarrangementer.html` | Ferdig | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
+| Kontakt | `kontakt.html` | Ferdig | Tre infobokser: booking, generelle henvendelser, postadresse |
 | Hele historien | `historien.html` | Ikke startet | Bruker fortsatt gammel Astra-design |
 
 ## Konserter på forsiden
@@ -34,6 +35,10 @@ Sist oppdatert: 2026-04-01
 - Redesignet `medlemskap.html` med split-layout og stjerne-bilde
 - Fikset bildekant-problem med scale-trick (Gemini)
 - Oppdatert nummerte steg-design (Gemini)
+- Redesignet `lane-korarrangementer.html` med split-layout, watermark-logoer, og sort logopanel
+- Lagt til logo-varianter for watermarks: gunther og 2008-outline (dark/white PNG)
+- Opprettet `kontakt.html` med tre infobokser (booking, generelt, postadresse)
+- Oppdatert footer på alle sider: Kontakt-lenke peker nå til kontakt.html
 
 ### 2026-03-31
 - Opprettet GitHub-repo `Thomaxelsen/mannskoret-nettside` (privat)
