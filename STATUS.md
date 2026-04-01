@@ -1,0 +1,44 @@
+# Status — Mannskoret nettside redesign
+
+Sist oppdatert: 2026-04-01
+
+## Sidestatus
+
+| Side | Fil | Status | Beskrivelse |
+|------|-----|--------|-------------|
+| Forside | `index.html` | Ferdig | Hero med konsertbilde + parallax, sticky innholdsseksjon med 3 konserter, footer |
+| Booking | `booking.html` | Ferdig | Split-layout: tekst venstre, ansikter-bilde høyre (sort bakgrunn) |
+| Bli med i koret | `medlemskap.html` | Ferdig | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
+| Låne korarrangementer | `lane-korarrangementer.html` | Ikke startet | Bruker fortsatt gammel Astra-design |
+| Hele historien | `historien.html` | Ikke startet | Bruker fortsatt gammel Astra-design |
+
+## Konserter på forsiden
+
+| Konsert | Dato | Sted | Billett-lenke |
+|---------|------|------|---------------|
+| Vi Bygger Landet (1. mai) | 1. mai 2026 | Vålerenga kirke | ticketco.events |
+| Piknik i Parken | 11. juni 2026 | Sofienbergparken | ticketmaster.no |
+| Raga Rockers / Mannskoret | 15. august 2026 | Foynhagen, Tønsberg | ticketmaster.no |
+
+## Designbeslutninger
+
+- **Sort/hvitt** gjennomgående — alle bilder konverteres til grayscale
+- **Typologo** (tekstlogo) brukes i nav på alle sider, ikke ikonsymbolet
+- **Cava-inspirert scroll-effekt** på forsiden: hero med parallax, innhold glir opp over
+- **Split-layout** for undersider med bilder (booking, medlemskap)
+- **Bilder med innebygd hvit kant** håndteres med `scale-[1.06]` + `overflow-hidden`
+
+## Endringslogg
+
+### 2026-04-01
+- Redesignet `medlemskap.html` med split-layout og stjerne-bilde
+- Fikset bildekant-problem med scale-trick (Gemini)
+- Oppdatert nummerte steg-design (Gemini)
+
+### 2026-03-31
+- Opprettet GitHub-repo `Thomaxelsen/mannskoret-nettside` (privat)
+- Lastet ned lokal kopi av mannskoret.org → `legacy` branch
+- Redesignet `index.html` med hero, parallax, 3 konserter
+- Redesignet `booking.html` med split-layout og ansikter-bilde
+- Laget transparente PNG-logoer (typologo-white, typologo-dark)
+- Konvertert konsertbilder til sort/hvitt
