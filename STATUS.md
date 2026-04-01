@@ -39,6 +39,9 @@ Sist oppdatert: 2026-04-01
 - Lagt til logo-varianter for watermarks: gunther og 2008-outline (dark/white PNG)
 - Opprettet `kontakt.html` med tre infobokser (booking, generelt, postadresse)
 - Oppdatert footer på alle sider: Kontakt-lenke peker nå til kontakt.html
+- Fikset mobilmeny: byttet bg-black/98 til bg-zinc-950 (solid) på alle sider
+- Satt repo til public, lagt til GitHub Pages deploy via Actions workflow
+- Live: https://thomaxelsen.github.io/mannskoret-nettside/
 
 ### 2026-03-31
 - Opprettet GitHub-repo `Thomaxelsen/mannskoret-nettside` (privat)
