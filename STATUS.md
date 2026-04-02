@@ -81,12 +81,14 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
 | Låne korarrangementer | `lane-korarrangementer.html` | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
 | Kontakt | `kontakt.html` | Tre infobokser: booking, generelle henvendelser, postadresse |
 | Hele historien | `historien.html` | Scroll-basert storytelling — 15 kapitler, fullscreen seksjoner, sticky video, glassmorphism |
+| Grafisk museum | `museum.html` | Opplevelsesbasert arkiv med GSAP-parallax, skråstilte plakater og Lightbox |
 
-## Neste steg: Grafisk museum
+## Grafisk museum
 
-**Status:** Plakater lastet ned, side ikke startet.
+**Status:** Fullført lokalt (`museum.html`). Klar for gjennomgang og WP-deploy ved behov.
 
-Planlagt ny side `museum.html` — et "grafisk museum" som viser Mannskorets plakathistorie fra 2003 til 2024.
+Opprettet en "Scrollytelling"-side basert på 44 bilde-plakater, organisert i årsmapper. Inverterer sort/hvitt-konseptet ved å vise fargeplakater mot lys bakgrunn, lagt opp med asymmetrisk "punk/paste-up" grid. Store typografiske vannmerker (årstall) driver den vertikale navigasjonen, bygget med GSAP Parallax, komplett med JS Lightbox for bildevisning.
+
 
 ### Plakatarkiv (`museum/`)
 46 plakater lastet ned fra Google Drive (MARKEDSFØRING → GRAFISK), organisert i årsmapper:
@@ -168,6 +170,12 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - Oppdatert bilde for Raga Rockers på forsiden (`index.html`) til turné-plakat (`foyn-bw.jpg`)
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 - Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt med grayscale)
+- **Opprettet `museum.html`:** Implementert Grafisk museum ("Scrollytelling") basert på de 44 asymmetrisk plasserte plakatene fra perioden 2003–2024. Omfatter bl.a. vannmerket typografi for år, asymmetriske plakater animert med Parallax (GSAP ScrollTrigger), rotasjoner, dynamisk uttrekk av hendelser/dato fra filnavn, og skreddersydd skjult Lightbox-skall for fullskjermsvisning av gamle detaljerike plakater.
+- **Museumsdesign V2 (Dark Mode & Konsertatmosfære):**
+  - Omskrevet siden til Dark Mode (`#09090b` bakgrunn, hvit/grå navigasjon og typografi).
+  - Fjernet bildebeskjæring; plakatveggen viser nå samtlige proporsjoner 100 % for en ujevn og organisk "paste-up"-fasade.
+  - Implementert avansert, fotorealistisk konsertmiljø for WordPress-deploy: Fast bakgrunnsbilde (`stage spotlight.jpg`), to flanke-matriser med rullerende røykteppe (`smoke-bg.png`) og gradient-maskeringer mot sentrum.
+  - Satt opp kaotisk "swirling & pulsering" for røyken ved å la bildet panorere gjennom et usynlig, modifiserende SVG-filter (`feTurbulence` og `feDisplacementMap`) matet med GSAP/native `hueRotate`-animasjoner.
 
 ### 2026-04-01
 - Fullført design-oppgradering av `historien.html`:
