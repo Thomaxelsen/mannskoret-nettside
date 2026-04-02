@@ -171,6 +171,7 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 - Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt med grayscale)
 - **Opprettet `museum.html`:** Implementert Grafisk museum ("Scrollytelling") basert på de 44 asymmetrisk plasserte plakatene fra perioden 2003–2024. Omfatter bl.a. vannmerket typografi for år, asymmetriske plakater animert med Parallax (GSAP ScrollTrigger), rotasjoner, dynamisk uttrekk av hendelser/dato fra filnavn, og skreddersydd skjult Lightbox-skall for fullskjermsvisning av gamle detaljerike plakater.
+- **Navnekonvensjon i museet:** Alle Hvit Måned-varianter standardisert til "Hvit Månedsavslutning". Fjernet `line-clamp-1` og redusert tittelstørrelse (`text-base md:text-lg`) slik at hele navnet alltid vises.
 - **Plakater 2025–2026 lagt til:** Hvit Måned (feb 2025) og Hvit Månedsavslutning (jan 2026) lagt til i grafisk museum. Totalt 46 plakater (2003–2026).
 - **PDF-plakater konvertert:** 2019-05 Trondheim og 2024-02 Hvit Måned konvertert fra PDF til JPG (PyMuPDF, 3x zoom). Hvit Måned 2024 senere fjernet (ikke museumsverdig).
 - **Museumsdesign V2 (Dark Mode & Konsertatmosfære):**
