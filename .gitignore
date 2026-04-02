@@ -1,0 +1,9 @@
+# Plakatarkiv (store bildefiler, lastes ned fra Google Drive ved behov)
+museum/
+
+# Claude Code arbeidsmappe
+.claude/
+
+# Legacy mapper (ikke del av redesignet)
+1 LOGO/
+Videoer/

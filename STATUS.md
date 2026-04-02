@@ -82,6 +82,37 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
 | Kontakt | `kontakt.html` | Tre infobokser: booking, generelle henvendelser, postadresse |
 | Hele historien | `historien.html` | Scroll-basert storytelling — 15 kapitler, fullscreen seksjoner, sticky video, glassmorphism |
 
+## Neste steg: Grafisk museum
+
+**Status:** Plakater lastet ned, side ikke startet.
+
+Planlagt ny side `museum.html` — et "grafisk museum" som viser Mannskorets plakathistorie fra 2003 til 2024.
+
+### Plakatarkiv (`museum/`)
+46 plakater lastet ned fra Google Drive (MARKEDSFØRING → GRAFISK), organisert i årsmapper:
+
+```
+museum/
+  2003/  (1 plakat)    2010/  (2 plakater)   2016/  (4 plakater)   2022/  (4 plakater)
+  2004/  (1)           2011/  (3)             2017/  (3)             2023/  (3)
+  2005/  (1)           2012/  (4)             2018/  (3)             2024/  (2)
+  2006/  (2)           2013/  (2)             2019/  (2)
+  2007/  (1)           2014/  (3)             2020/  (1)
+  2008/  (2)           2015/  (2)
+```
+
+Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
+
+**Kilde:** Google Drive delt mappe `1w6Cx6D8TZ_CndQMUaadTXaNiy1dY5KzO` → MARKEDSFØRING → GRAFISK.
+
+**Merknader:**
+- 2 filer er PDF (2019-05 Trondheim, 2024-02 Hvit Måned) — trenger konvertering til bilde
+- 1 fil er GIF (2014-06 Husleia)
+- Mangler 2009, 2021 (ingen events/plakater funnet)
+- Ikke lastet ned: logo, korbilde, t-skjorter, backdrops, stillingsannonser, Raga singel-cover
+
+**Ikke push til WordPress ennå** — jobbes med lokalt og i GitHub først.
+
 ## Konserter på forsiden
 
 | Konsert | Dato | Sted | Billett-lenke |
@@ -130,6 +161,10 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
   - Forsiden: burgermeny bytter til mørk farge + ramme ved scroll forbi hero
 - **Sticky nav** på alle undersider (`sticky top-0 z-50 bg-[#fafafa]/95 backdrop-blur-md`)
 - Rettet postadresse på kontaktsiden til Arendalsgata 45, 0463 Oslo
+- **Grafisk museum — plakater lastet ned:**
+  - 46 plakater hentet fra Google Drive (MARKEDSFØRING → GRAFISK) via MCP
+  - Organisert i `museum/` med årsmapper 2003–2024
+  - Filnavn standardisert til `{YYYY-MM-DD}_{event-name}.{ext}`
 - Oppdatert bilde for Raga Rockers på forsiden (`index.html`) til turné-plakat (`foyn-bw.jpg`)
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 - Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt med grayscale)

@@ -32,12 +32,15 @@ lokal-dev/
   index.html              — Forside (hero + konserter)
   booking.html            — Booking til events
   medlemskap.html         — Bli med i koret?
-  lane-korarrangementer.html — Låne korarrangementer (gammel design)
-  historien.html           — Hele historien (gammel design)
+  lane-korarrangementer.html — Låne korarrangementer
+  historien.html           — Hele historien (scroll-basert storytelling)
+  kontakt.html            — Kontakt (ny side)
+  museum.html             — Grafisk museum (PLANLAGT, ikke startet)
   css/                    — Legacy Astra CSS (brukes av uoppdaterte sider)
   js/                     — Legacy Astra JS
   fonts/                  — Legacy Astra fonter
-  images/                 — Alle bilder
+  images/                 — Bilder brukt på nettstedet
+  museum/                 — Plakatarkiv (46 plakater, 2003–2024, sortert i årsmapper)
 ```
 
 ## Lokal utvikling
@@ -50,7 +53,28 @@ python -m http.server 8765
 
 ## WordPress-tilkobling
 
-MCP-server `claudeus-wp-mcp` er konfigurert i `~/.claude/.mcp.json` med API-tilgang til mannskoret.org (bruker: ThomasAxelsen). Kan brukes for å pushe innhold tilbake når redesignet er klart.
+MCP-server `claudeus-wp-mcp` er konfigurert i `~/.claude/.mcp.json` med API-tilgang til mannskoret.org (bruker: ThomasAxelsen, Application Password "Claude Code v2").
+
+### Sider live på WordPress
+
+| Side | WP Page ID | Slug |
+|------|-----------|------|
+| Forside | 406 | `hjem` |
+| Historien | 407 | `historien` |
+| Booking | 408 | `booking` |
+| Medlemskap | 409 | `medlemskap` |
+| Låne korarrangementer | 410 | `lane-korarrangementer` |
+| Kontakt | 411 | `kontakt` |
+
+### Deploy-prosedyre (lokal → WordPress)
+Scriptet `$TEMP/wp_final_push.py` (må gjenskapes ved ny sesjon) gjør:
+1. Ekstraher `<head>` style-blokker + `<body>` innhold fra lokal HTML
+2. Erstatt `images/` med WP media-URLer (hardkodet mapping, se STATUS.md)
+3. Erstatt `*.html`-lenker med `/slug/`-format
+4. Wrap i `<!-- wp:html -->` med Astra CSS override + CDN-ressurser
+5. POST til `https://mannskoret.org/wp-json/wp/v2/pages/{id}`
+
+**NB:** WP legger til `-scaled` på store bilder ved upload. Mapping må være hardkodet, ikke automatisk generert fra filnavn.
 
 ## Nav-struktur (beholdes på alle sider)
 
