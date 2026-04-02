@@ -34,6 +34,7 @@ Sist oppdatert: 2026-04-02
 ### 2026-04-02
 - Oppdatert bilde for Raga Rockers på forsiden (`index.html`) til turné-plakat (`foyn-bw.jpg`)
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
+- Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt)
 
 ### 2026-04-01
 - Fullført design-oppgradering av `historien.html`:
