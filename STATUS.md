@@ -122,6 +122,14 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
   - Satte opp Application Password v2 for REST API-tilgang
   - Backup av 5 eksisterende WP-sider som draft
   - Verifisert alle sider desktop (1280px) og mobil (375px) med Playwright screenshots
+- **WP-spesifikke fikser etter deploy:**
+  - Fikset bildmapping: filer med mellomrom/store bokstaver → WP `-scaled` og bindestrek-konvertering
+  - Lagt til `color:#fff !important` og `font-weight:700 !important` på fullscreen-overskrifter i historien (Astra CSS overstyring)
+  - Mørkere overlay i historien: `bg-black/70` → `/80`, video `/50` → `/75`, pluss `text-shadow`
+  - Burgermeny-ikon: lagt til `border border-zinc-300 rounded-md` på alle undersider
+  - Forsiden: burgermeny bytter til mørk farge + ramme ved scroll forbi hero
+- **Sticky nav** på alle undersider (`sticky top-0 z-50 bg-[#fafafa]/95 backdrop-blur-md`)
+- Rettet postadresse på kontaktsiden til Arendalsgata 45, 0463 Oslo
 - Oppdatert bilde for Raga Rockers på forsiden (`index.html`) til turné-plakat (`foyn-bw.jpg`)
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 - Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt med grayscale)
