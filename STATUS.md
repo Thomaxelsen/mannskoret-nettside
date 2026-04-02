@@ -1,6 +1,6 @@
 # Status — Mannskoret nettside redesign
 
-Sist oppdatert: 2026-04-01
+Sist oppdatert: 2026-04-02
 
 ## Sidestatus
 
@@ -30,6 +30,10 @@ Sist oppdatert: 2026-04-01
 - **Bilder med innebygd hvit kant** håndteres med `scale-[1.06]` + `overflow-hidden`
 
 ## Endringslogg
+
+### 2026-04-02
+- Oppdatert bilde for Raga Rockers på forsiden (`index.html`) til turné-plakat (`foyn-bw.jpg`)
+- Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 
 ### 2026-04-01
 - Fullført design-oppgradering av `historien.html`:
