@@ -108,7 +108,7 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 **Kilde:** Google Drive delt mappe `1w6Cx6D8TZ_CndQMUaadTXaNiy1dY5KzO` → MARKEDSFØRING → GRAFISK.
 
 **Merknader:**
-- 2 filer er PDF (2019-05 Trondheim, 2024-02 Hvit Måned) — trenger konvertering til bilde
+- 2 filer var PDF (2019-05 Trondheim, 2024-02 Hvit Måned) — konvertert til JPG via PyMuPDF
 - 1 fil er GIF (2014-06 Husleia)
 - Mangler 2009, 2021 (ingen events/plakater funnet)
 - Ikke lastet ned: logo, korbilde, t-skjorter, backdrops, stillingsannonser, Raga singel-cover
@@ -171,6 +171,7 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - Implementert premium 3:4 container med `object-contain` slik at plakaten skalerer pent på mobil uten å strekkes
 - Byttet intro-bilde i `historien.html` fra `Sparkle.jpeg` til `2004-05 v2.jpg` (gruppeportrett, sort/hvitt med grayscale)
 - **Opprettet `museum.html`:** Implementert Grafisk museum ("Scrollytelling") basert på de 44 asymmetrisk plasserte plakatene fra perioden 2003–2024. Omfatter bl.a. vannmerket typografi for år, asymmetriske plakater animert med Parallax (GSAP ScrollTrigger), rotasjoner, dynamisk uttrekk av hendelser/dato fra filnavn, og skreddersydd skjult Lightbox-skall for fullskjermsvisning av gamle detaljerike plakater.
+- **PDF-plakater konvertert:** 2019-05 Trondheim og 2024-02 Hvit Måned konvertert fra PDF til JPG (PyMuPDF, 3x zoom). Lagt til i museum.html — totalt 46 plakater nå komplett.
 - **Museumsdesign V2 (Dark Mode & Konsertatmosfære):**
   - Omskrevet siden til Dark Mode (`#09090b` bakgrunn, hvit/grå navigasjon og typografi).
   - Fjernet bildebeskjæring; plakatveggen viser nå samtlige proporsjoner 100 % for en ujevn og organisk "paste-up"-fasade.
