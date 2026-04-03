@@ -14,7 +14,7 @@ Lokal redesign av [mannskoret.org](https://mannskoret.org). Utgangspunktet er en
 - **Tailwind CSS via CDN** (`<script src="https://cdn.tailwindcss.com">`)
 - **Font:** Outfit (Google Fonts CDN)
 - **Ikoner:** Phosphor Icons (CDN)
-- **Animasjoner:** GSAP + ScrollTrigger (CDN) — kun på forsiden
+- **Animasjoner:** GSAP + ScrollTrigger (CDN) — forsiden og grafisk museum
 - **Ingen Node.js, ingen npm, ingen React**
 
 ## Designprinsipper
@@ -35,12 +35,13 @@ lokal-dev/
   lane-korarrangementer.html — Låne korarrangementer
   historien.html           — Hele historien (scroll-basert storytelling)
   kontakt.html            — Kontakt (ny side)
-  museum.html             — Grafisk museum (PLANLAGT, ikke startet)
+  museum.html             — Grafisk museum (dark mode, GSAP-parallax, 45 plakater)
+  deploy_museum.py        — Deploy-script for museum-siden til WordPress
   css/                    — Legacy Astra CSS (brukes av uoppdaterte sider)
   js/                     — Legacy Astra JS
   fonts/                  — Legacy Astra fonter
-  images/                 — Bilder brukt på nettstedet
-  museum/                 — Plakatarkiv (46 plakater, 2003–2024, sortert i årsmapper)
+  images/                 — Bilder brukt på nettstedet (inkl. smoke-bg.png, stage spotlight.jpg)
+  museum/                 — Plakatarkiv (2003–2026, sortert i årsmapper)
 ```
 
 ## Lokal utvikling
@@ -65,6 +66,7 @@ MCP-server `claudeus-wp-mcp` er konfigurert i `~/.claude/.mcp.json` med API-tilg
 | Medlemskap | 409 | `medlemskap` |
 | Låne korarrangementer | 410 | `lane-korarrangementer` |
 | Kontakt | 411 | `kontakt` |
+| Grafisk museum | 490 | `grafisk-museum` |
 
 ### Deploy-prosedyre (lokal → WordPress)
 Scriptet `$TEMP/wp_final_push.py` (må gjenskapes ved ny sesjon) gjør:
@@ -76,12 +78,16 @@ Scriptet `$TEMP/wp_final_push.py` (må gjenskapes ved ny sesjon) gjør:
 
 **NB:** WP legger til `-scaled` på store bilder ved upload. Mapping må være hardkodet, ikke automatisk generert fra filnavn.
 
+**VIKTIG:** Ved oppdatering av eksisterende WP-sider via API: bruk `context=edit` for å hente raw-innhold. ALDRI bruk `content['rendered']` — det har blitt kjørt gjennom `wpautop` og mangler `<!-- wp:html -->`-blokken. Skriv alltid tilbake innhold wrappet i `<!-- wp:html -->...</--wp:html -->`.
+
 ## Nav-struktur (beholdes på alle sider)
 
 - Booking til events → `booking.html`
 - Bli med i koret? → `medlemskap.html`
 - Låne korarrangementer → `lane-korarrangementer.html`
 - Hele historien → `historien.html`
+- Kontakt → `kontakt.html`
+- Grafisk museum → `museum.html`
 
 Logo: `typologo-white.png` (over mørk bg) / `typologo-dark.png` (over lys bg)
 

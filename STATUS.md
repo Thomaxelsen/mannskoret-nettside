@@ -1,12 +1,12 @@
 # Status — Mannskoret nettside redesign
 
-Sist oppdatert: 2026-04-02
+Sist oppdatert: 2026-04-03
 
 ## Prosjektstatus: LIVE PÅ WORDPRESS
 
 **Nettsiden er migrert til WordPress og er live på [mannskoret.org](https://www.mannskoret.org/).**
 
-Alle 6 sider er deployet som WordPress-sider med Astra-temaet. Designet serveres som rå HTML via `<!-- wp:html -->`-blokker med Tailwind CDN, GSAP og egne fonter injisert direkte i sideinnholdet. Astra-temaets header/footer er deaktivert per side via meta-felter.
+Alle 7 sider er deployet som WordPress-sider med Astra-temaet. Designet serveres som rå HTML via `<!-- wp:html -->`-blokker med Tailwind CDN, GSAP og egne fonter injisert direkte i sideinnholdet. Astra-temaets header/footer er deaktivert per side via meta-felter.
 
 De lokale HTML-filene i dette repoet er kildefilene. Ved endringer: oppdater lokal fil → re-push til WordPress via REST API.
 
@@ -20,6 +20,7 @@ De lokale HTML-filene i dette repoet er kildefilene. Ved endringer: oppdater lok
 | Medlemskap | `medlemskap.html` | [mannskoret.org/medlemskap/](https://www.mannskoret.org/medlemskap/) | 409 |
 | Låne korarrangementer | `lane-korarrangementer.html` | [mannskoret.org/lane-korarrangementer/](https://www.mannskoret.org/lane-korarrangementer/) | 410 |
 | Kontakt | `kontakt.html` | [mannskoret.org/kontakt/](https://www.mannskoret.org/kontakt/) | 411 |
+| Grafisk museum | `museum.html` | [mannskoret.org/grafisk-museum/](https://www.mannskoret.org/grafisk-museum/) | 490 |
 
 ## WordPress-oppsett
 
@@ -66,10 +67,12 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
 
 ## Mediafiler på WordPress
 
-33 filer lastet opp til WP mediebibliotek (ID 373–405):
-- 32 bilder (JPG, PNG) — inkl. logoer, ikoner, konsertbilder, historiske bilder
+83 filer lastet opp til WP mediebibliotek (ID 373–405, 440–489):
+- 32 bilder (JPG, PNG) — logoer, ikoner, konsertbilder, historiske bilder (ID 373–405)
 - 1 video: `berlin-cafe-web.mp4` (4.4 MB)
+- 48 museum-plakater + 2 bakgrunnsbilder (ID 440–489) — lastet opp 2026-04-03
 - **NB:** `Ivar.avif` ble konvertert til `Ivar.jpg` fordi WP ikke støtter AVIF
+- **NB:** WP konverterer filnavn: mellomrom → bindestreker, store bilder → `-scaled`
 
 ## Sidestatus (design)
 
@@ -85,9 +88,9 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
 
 ## Grafisk museum
 
-**Status:** Fullført lokalt (`museum.html`). Klar for gjennomgang og WP-deploy ved behov.
+**Status:** Live på WordPress ([mannskoret.org/grafisk-museum/](https://www.mannskoret.org/grafisk-museum/)), WP Page ID 490.
 
-Opprettet en "Scrollytelling"-side basert på 44 bilde-plakater, organisert i årsmapper. Inverterer sort/hvitt-konseptet ved å vise fargeplakater mot lys bakgrunn, lagt opp med asymmetrisk "punk/paste-up" grid. Store typografiske vannmerker (årstall) driver den vertikale navigasjonen, bygget med GSAP Parallax, komplett med JS Lightbox for bildevisning.
+Dark mode scrollytelling-side med 45 fargeplakater (2003–2026) mot sort bakgrunn med konsertscene-atmosfære. Asymmetrisk "paste-up" grid med GSAP-parallax, skråstilte plakatkort, årstall-vannmerker, og fullskjerms lightbox. Bakgrunn: fast scenebilde + animert røyk (SVG displacement filter).
 
 
 ### Plakatarkiv (`museum/`)
@@ -97,9 +100,9 @@ Opprettet en "Scrollytelling"-side basert på 44 bilde-plakater, organisert i å
 museum/
   2003/  (1 plakat)    2010/  (2 plakater)   2016/  (4 plakater)   2022/  (4 plakater)
   2004/  (1)           2011/  (3)             2017/  (3)             2023/  (3)
-  2005/  (1)           2012/  (4)             2018/  (3)             2024/  (2)
-  2006/  (2)           2013/  (2)             2019/  (2)
-  2007/  (1)           2014/  (3)             2020/  (1)
+  2005/  (1)           2012/  (4)             2018/  (3)             2024/  (1 — Hvit Måned fjernet)
+  2006/  (2)           2013/  (2)             2019/  (2)             2025/  (1)
+  2007/  (1)           2014/  (3)             2020/  (1)             2026/  (1)
   2008/  (2)           2015/  (2)
 ```
 
@@ -113,7 +116,7 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - Mangler 2009, 2021 (ingen events/plakater funnet)
 - Ikke lastet ned: logo, korbilde, t-skjorter, backdrops, stillingsannonser, Raga singel-cover
 
-**Ikke push til WordPress ennå** — jobbes med lokalt og i GitHub først.
+**Bilde-mapping:** Cached i `/tmp/museum_wp_mapping.json` (lokal sti → WP URL for alle 50 bilder).
 
 ## Konserter på forsiden
 
@@ -137,11 +140,20 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - **Tailwind CSS via CDN** (`<script src="https://cdn.tailwindcss.com">`)
 - **Font:** Outfit (Google Fonts CDN, vekter 300–900)
 - **Ikoner:** Phosphor Icons (`<script src="https://unpkg.com/@phosphor-icons/web">`)
-- **Animasjoner:** GSAP v3.12.5 + ScrollTrigger (CDN) — kun på forsiden
+- **Animasjoner:** GSAP v3.12.5 + ScrollTrigger (CDN) — forsiden og grafisk museum
 - **Video:** YouTube IFrame API (historien) + lokal MP4 (Berlin café)
 - **Ingen Node.js, ingen npm, ingen React**
 
 ## Endringslogg
+
+### 2026-04-03
+- **Grafisk museum deployet til WordPress:**
+  - Lastet opp 50 mediafiler (48 plakater + 2 bakgrunnsbilder) til WP mediebibliotek (ID 440–489)
+  - Opprettet ny WP-side (ID 490, slug: `grafisk-museum`)
+  - Lagt til "Grafisk museum"-lenke i nav og footer på alle 7 sider (inkl. forsiden)
+  - Museum-siden bruker dark mode med Space Grotesk display-font, SVG røykfilter og GSAP-parallax
+- **WP-fix: Gjenopprettet `<!-- wp:html -->`-blokker** på alle 6 eksisterende sider etter at nav-oppdateringscriptet feilaktig leste `content['rendered']` i stedet for `content['raw']`, som fjernet block-wrapperen og lot `wpautop` ødelegge CSS/HTML
+- **Oppdatert dokumentasjon:** CLAUDE.md og STATUS.md oppdatert med museum-side, WP Page ID 490, ny nav-struktur, og advarsel om `rendered` vs `raw` ved WP API-oppdatering
 
 ### 2026-04-02
 - **MIGRERING TIL WORDPRESS FULLFØRT**
