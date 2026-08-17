@@ -1,6 +1,6 @@
 # Status — Mannskoret nettside redesign
 
-Sist oppdatert: 2026-04-03
+Sist oppdatert: 2026-08-17
 
 ## Prosjektstatus: LIVE PÅ WORDPRESS
 
@@ -78,7 +78,7 @@ De 5 opprinnelige WordPress-sidene er bevart som draft med `-backup`-suffix:
 
 | Side | Fil | Beskrivelse |
 |------|-----|-------------|
-| Forside | `index.html` | Hero med konsertbilde + GSAP parallax, sticky innholdsseksjon med 3 konserter, footer |
+| Forside | `index.html` | Hero med konsertbilde + GSAP parallax, sticky innholdsseksjon med kommende konserter, footer |
 | Booking | `booking.html` | Split-layout: tekst venstre, ansikter-bilde høyre (sort bakgrunn) |
 | Bli med i koret | `medlemskap.html` | Split-layout: tekst venstre, stjerne-bilde høyre (scale-trick for sømløs kant) |
 | Låne korarrangementer | `lane-korarrangementer.html` | Split-layout: tekst venstre, sort logopanel høyre, watermark-logoer (4 varianter) |
@@ -120,11 +120,11 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 
 ## Konserter på forsiden
 
-| Konsert | Dato | Sted | Billett-lenke |
-|---------|------|------|---------------|
-| Vi Bygger Landet (1. mai) | 1. mai 2026 | Vålerenga kirke | ticketco.events |
-| Piknik i Parken | 11. juni 2026 | Sofienbergparken | ticketmaster.no |
-| Raga Rockers / Mannskoret | 15. august 2026 | Foynhagen, Tønsberg | ticketmaster.no |
+| Konsert | Dato | Sted | Billett-lenke | Bilde |
+|---------|------|------|---------------|-------|
+| Mannskoret betaler husleia | Tirsdag 3. november 2026, ca. kl 21 | Kampen Bistro, Oslo | — (ingen enda) | `images/Mannskoret ansikter.jpg` |
+
+**Avviklet (fjernet fra forsiden 2026-08-17):** Vi Bygger Landet (1. mai 2026), Piknik i Parken (11. juni 2026), Raga Rockers / Mannskoret (15. august 2026).
 
 ## Designbeslutninger
 
@@ -145,6 +145,13 @@ Filnavn-konvensjon: `{YYYY-MM-DD}_{event-name}.{ext}` (lowercase, bindestreker).
 - **Ingen Node.js, ingen npm, ingen React**
 
 ## Endringslogg
+
+### 2026-08-17
+- **Oppdatert konsertprogrammet på forsiden** (`index.html` + WP side 406):
+  - Fjernet Piknik i Parken (11. juni 2026) og Raga Rockers / Foynhagen (15. august 2026) — begge avviklet
+  - Lagt til «Mannskoret betaler husleia» — tirsdag 3. november 2026, ca. kl 21, Kampen Bistro. Ingen billettlenke enda, så kortet står uten «Kjøp billetter»-lenke
+  - Bilde: `images/Mannskoret ansikter.jpg` (samme som nederst på `historien.html`), WP-URL `.../2026/04/Mannskoret-ansikter.jpg`. Bruker `aspect-[8/5]` som matcher bildets 1690×1048
+  - Deployet rett til WordPress via REST API (`context=edit` → `content.raw`, skrevet tilbake wrappet i `<!-- wp:html -->`)
 
 ### 2026-04-03
 - **Grafisk museum deployet til WordPress:**
